@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/decks"
+    app:startDestination="@id/deckListFragment">
+    <fragment
+        android:id="@+id/deckListFragment"
+        android:name="com.example.proyectofinalapiyugioh.ui.decks.DeckListFragment"
+        android:label="DeckListFragment"
+        tools:layout="@layout/fragment_deck_list"
+        ></fragment>
+
+</navigation>
