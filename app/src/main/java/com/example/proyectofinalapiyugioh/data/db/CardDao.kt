@@ -12,4 +12,7 @@ interface CardDao {
     suspend fun insert(listCardEntity: List<CardEntity>)
     @Query("SELECT * FROM card")
     fun getAll(): Flow<List<CardEntity>>
+
+    @Query("SELECT * FROM card WHERE id = :id")
+    fun getCard(id:Int): CardEntity
 }

@@ -33,3 +33,16 @@ fun List<CardEntity>.asCard():List<Card> {
     }
 }
 
+fun CardEntity.asCardD():Card {
+    return Card(this.id,
+        this.name,
+        this.type,
+        this.desc,
+        this.archetype,
+        this.imageUrl,
+        this.imageUrlSmall,
+        this.favorite)
+
+}
+
+

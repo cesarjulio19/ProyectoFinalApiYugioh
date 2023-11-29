@@ -1,8 +1,9 @@
-package com.example.proyectofinalapiyugioh.ui.cards
+package com.example.proyectofinalapiyugioh.ui.cards.list
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.proyectofinalapiyugioh.data.repository.CardRepository
+import com.example.proyectofinalapiyugioh.ui.cards.list.CardListUiState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -34,7 +35,6 @@ class CardListViewModel @Inject constructor(private val repository: CardReposito
         viewModelScope.launch {
             repository.card.collect {
                 _uiState.value = CardListUiState(it)
-
             }
         }
 

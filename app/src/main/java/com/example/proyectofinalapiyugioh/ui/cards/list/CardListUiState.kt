@@ -1,4 +1,4 @@
-package com.example.proyectofinalapiyugioh.ui.cards
+package com.example.proyectofinalapiyugioh.ui.cards.list
 
 import com.example.proyectofinalapiyugioh.data.repository.Card
 

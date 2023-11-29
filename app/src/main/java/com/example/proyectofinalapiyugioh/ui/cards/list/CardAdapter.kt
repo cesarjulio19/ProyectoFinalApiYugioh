@@ -1,4 +1,4 @@
-package com.example.proyectofinalapiyugioh.ui.cards
+package com.example.proyectofinalapiyugioh.ui.cards.list
 
 import android.content.Context
 import android.view.LayoutInflater

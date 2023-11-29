@@ -1,4 +1,4 @@
-package com.example.proyectofinalapiyugioh.ui.cards
+package com.example.proyectofinalapiyugioh.ui.cards.list
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,7 +9,6 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import com.example.proyectofinalapiyugioh.R
 import com.example.proyectofinalapiyugioh.databinding.FragmentCardListBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -17,7 +16,7 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class CardListFragment : Fragment() {
     private lateinit var binding: FragmentCardListBinding
-    private val viewModel:CardListViewModel by viewModels()
+    private val viewModel: CardListViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,

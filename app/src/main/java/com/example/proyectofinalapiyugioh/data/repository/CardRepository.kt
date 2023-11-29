@@ -4,6 +4,7 @@ import com.example.proyectofinalapiyugioh.data.api.CardApiRepository
 import com.example.proyectofinalapiyugioh.data.api.asEntityModel
 import com.example.proyectofinalapiyugioh.data.db.CardDBRepository
 import com.example.proyectofinalapiyugioh.data.db.asCard
+import com.example.proyectofinalapiyugioh.data.db.asCardD
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
@@ -23,7 +24,23 @@ class CardRepository @Inject constructor(
                 it.asCard()
             }
             return list
+
+
         }
+
+
+    fun cardDetail(id:Int): Card{
+
+        val cardD: Card
+
+        val card = dbRepository.getCardById(id).asCardD()
+
+        cardD = card
+
+        return cardD
+
+
+    }
 
     suspend fun refreshList() = withContext(Dispatchers.IO){
         val apiCard = apiRepository.getAll()
