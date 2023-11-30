@@ -2,6 +2,7 @@ package com.example.proyectofinalapiyugioh.ui.cards.list
 
 import android.content.Context
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.imageLoader
@@ -9,7 +10,7 @@ import coil.request.ImageRequest
 import com.example.proyectofinalapiyugioh.data.repository.Card
 import com.example.proyectofinalapiyugioh.databinding.CardItemBinding
 
-class CardAdapter(private val context: Context)
+class CardAdapter(private val context: Context, private val onShowDetail:(id:Int,v: View)->Unit)
     : RecyclerView.Adapter<CardAdapter.CardItemViewHolder>() {
 
     private var cardList: List<Card> = emptyList()
@@ -26,6 +27,10 @@ class CardAdapter(private val context: Context)
                 .build()
 
             context.imageLoader.enqueue(imageRequest)
+
+            binding.card.setOnClickListener(){
+                onShowDetail(c.id,binding.root)
+            }
 
         }
 

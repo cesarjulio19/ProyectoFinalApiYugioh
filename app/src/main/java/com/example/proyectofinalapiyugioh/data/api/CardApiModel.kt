@@ -8,7 +8,10 @@ data class CardApiModel(val id: Int,
                         val desc: String,
                         val archetype: String,
                         val imageUrl: String,
-                        val imageUrlSmall: String)
+                        val imageUrlSmall: String,
+                        val level: Int,
+                        val atk: Int,
+                        val def: Int)
 
 data class CardListResponse(
     val data: List<CardListItemResponse>
@@ -26,7 +29,10 @@ data class CardDetailResponse(val id: Int,
                               val type: String,
                               val desc: String,
                               val archetype: String,
-                              val card_images: List<CardImage>){
+                              val card_images: List<CardImage>,
+                              val level: Int,
+                              val atk: Int,
+                              val def: Int){
     fun asApiModel():CardApiModel {
         return CardApiModel(
             id,
@@ -35,7 +41,10 @@ data class CardDetailResponse(val id: Int,
             desc,
             archetype,
             card_images[0].image_url,
-            card_images[0].image_url_small
+            card_images[0].image_url_small,
+            level,
+            atk,
+            def
         )
     }
 }
@@ -55,7 +64,11 @@ fun List<CardApiModel>.asEntityModel(): List<CardEntity> {
             it.desc,
             it.archetype,
             it.imageUrl,
-            it.imageUrlSmall
+            it.imageUrlSmall,
+            it.level,
+            it.atk,
+            it.def
+
         )
     }
 }

@@ -1,11 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cards"
     app:startDestination="@id/cardListFragment">
     <fragment
         android:id="@+id/cardListFragment"
         android:name="com.example.proyectofinalapiyugioh.ui.cards.list.CardListFragment"
-        android:label="CardListFragment"></fragment>
+        android:label="CardListFragment">
+        <action
+            android:id="@+id/action_cardListFragment_to_cardDetailFragment"
+            app:destination="@id/cardDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cardDetailFragment"
+        android:name="com.example.proyectofinalapiyugioh.ui.cards.detail.CardDetailFragment"
+        android:label="fragment_card_detail"
+        tools:layout="@layout/fragment_card_detail" >
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </fragment>
 
 </navigation>

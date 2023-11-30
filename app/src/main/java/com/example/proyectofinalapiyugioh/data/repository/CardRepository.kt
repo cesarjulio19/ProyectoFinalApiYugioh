@@ -29,15 +29,9 @@ class CardRepository @Inject constructor(
         }
 
 
-    fun cardDetail(id:Int): Card{
+     suspend fun cardDetail(id:Int) = withContext(Dispatchers.IO){
 
-        val cardD: Card
-
-        val card = dbRepository.getCardById(id).asCardD()
-
-        cardD = card
-
-        return cardD
+        dbRepository.getCardById(id).asCardD()
 
 
     }

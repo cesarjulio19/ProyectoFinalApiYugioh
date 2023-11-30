@@ -11,8 +11,8 @@ class CardDBRepository @Inject constructor(private val cardDao:CardDao) {
 
     val allCard: Flow<List<CardEntity>> = cardDao.getAll()
 
-    fun getCardById(id:Int):CardEntity{
-        val cardD:CardEntity = cardDao.getCard(id)
+    suspend fun getCardById(id:Int):CardEntity{
+        val cardD = cardDao.getCard(id)
         return cardD
     }
 

@@ -7,4 +7,6 @@ data class Card(val id: Int,
                 val archetype: String,
                 val imageUrl: String,
                 val imageUrlSmall: String,
-                val favorite:Boolean=false)
+                val level: Int,
+                val atk: Int,
+                val def: Int)

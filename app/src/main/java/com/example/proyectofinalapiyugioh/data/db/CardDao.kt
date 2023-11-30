@@ -14,5 +14,5 @@ interface CardDao {
     fun getAll(): Flow<List<CardEntity>>
 
     @Query("SELECT * FROM card WHERE id = :id")
-    fun getCard(id:Int): CardEntity
+    suspend fun getCard(id:Int): CardEntity
 }

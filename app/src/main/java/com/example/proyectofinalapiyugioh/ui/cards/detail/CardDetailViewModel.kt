@@ -6,6 +6,7 @@ import com.example.proyectofinalapiyugioh.data.repository.Card
 import com.example.proyectofinalapiyugioh.data.repository.CardRepository
 import com.example.proyectofinalapiyugioh.ui.cards.list.CardListUiState
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -35,9 +36,9 @@ class CardDetailViewModel @Inject constructor(private val repository: CardReposi
 
     }
 
-    fun getCard(id:Int): Card{
+    suspend fun getCard(id:Int): Card {
 
-        val card:Card = repository.cardDetail(id)
+        val card = repository.cardDetail(id)
 
         return card
     }

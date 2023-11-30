@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.findNavController
 import com.example.proyectofinalapiyugioh.databinding.FragmentCardListBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -31,7 +32,7 @@ class CardListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val adapter = CardAdapter(requireContext())
+        val adapter = CardAdapter(requireContext(), ::onShowDetail)
         val rv = binding.cardList
         rv.adapter = adapter
         viewLifecycleOwner.lifecycleScope.launch {
@@ -43,4 +44,12 @@ class CardListFragment : Fragment() {
         }
 
     }
+
+    private fun onShowDetail(id: Int,view:View) {
+        val action = CardListFragmentDirections
+            .actionCardListFragmentToCardDetailFragment(id)
+        view.findNavController().navigate(action)
+    }
+
+
 }

@@ -27,7 +27,10 @@ class CardApiRepository @Inject constructor(private val service:CardService){
                     detailListResponse.data[0].desc,
                     detailListResponse.data[0].archetype?: "No Archetype",
                     detailListResponse.data[0].card_images[0].image_url,
-                    detailListResponse.data[0].card_images[0].image_url_small
+                    detailListResponse.data[0].card_images[0].image_url_small,
+                    detailListResponse.data[0].level?: 0,
+                    detailListResponse.data[0].atk?: 0,
+                    detailListResponse.data[0].def?: 0
                 )
                 list.add(cardApiModel)
             } catch (e: Exception) {
