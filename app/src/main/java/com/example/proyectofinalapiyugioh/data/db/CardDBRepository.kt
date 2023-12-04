@@ -10,6 +10,7 @@ import javax.inject.Singleton
 class CardDBRepository @Inject constructor(private val cardDao:CardDao) {
 
     val allCard: Flow<List<CardEntity>> = cardDao.getAll()
+    val allDeck: Flow<List<DeckEntity>> = cardDao.getAllDeck()
 
     suspend fun getCardById(id:Int):CardEntity{
         val cardD = cardDao.getCard(id)
@@ -19,5 +20,10 @@ class CardDBRepository @Inject constructor(private val cardDao:CardDao) {
     @WorkerThread
     suspend fun insert(listCardEntity: List<CardEntity>) {
         cardDao.insert(listCardEntity)
+    }
+
+    @WorkerThread
+    suspend fun insertDecks(listDeckEntity: List<DeckEntity>){
+        cardDao.insertDeckList(listDeckEntity)
     }
 }

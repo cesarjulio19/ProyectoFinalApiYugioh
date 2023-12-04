@@ -6,7 +6,7 @@
     app:startDestination="@id/deckListFragment">
     <fragment
         android:id="@+id/deckListFragment"
-        android:name="com.example.proyectofinalapiyugioh.ui.decks.DeckListFragment"
+        android:name="com.example.proyectofinalapiyugioh.ui.decks.list.DeckListFragment"
         android:label="DeckListFragment"
         tools:layout="@layout/fragment_deck_list"
         ></fragment>

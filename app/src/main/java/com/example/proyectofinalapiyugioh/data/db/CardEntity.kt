@@ -2,9 +2,11 @@ package com.example.proyectofinalapiyugioh.data.db
 
 import androidx.room.Embedded
 import androidx.room.Entity
+import androidx.room.Junction
 import androidx.room.PrimaryKey
 import androidx.room.Relation
 import com.example.proyectofinalapiyugioh.data.repository.Card
+import com.example.proyectofinalapiyugioh.data.repository.Deck
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
@@ -12,7 +14,7 @@ import kotlinx.coroutines.flow.map
 @Entity(tableName = "card")
 data class CardEntity(
     @PrimaryKey
-    val id: Int,
+    val idCard: Int,
     val name: String,
     val type: String,
     val desc: String,
@@ -37,15 +39,20 @@ data class DeckCardCrossRef(
     val idCard: Int
 )
 
-/*data class DeckWithCards(
+data class DeckWithCards(
     @Embedded val deck: DeckEntity,
-    @Relation()
-)*/
+    @Relation(
+        parentColumn = "idDeck",
+        entityColumn = "idCard",
+        associateBy = Junction(DeckCardCrossRef::class)
+    )
+    val cards: List<CardEntity>
+)
 
 fun List<CardEntity>.asCard():List<Card> {
     return this.map {
         Card(
-            it.id,
+            it.idCard,
             it.name,
             it.type,
             it.desc,
@@ -59,8 +66,18 @@ fun List<CardEntity>.asCard():List<Card> {
     }
 }
 
+fun List<DeckEntity>.asDeck():List<Deck>{
+    return this.map{
+        Deck(
+            it.idDeck,
+            it.nameDeck
+        )
+    }
+
+}
+
 fun CardEntity.asCardD(): Card {
-    return Card(id,
+    return Card(idCard,
             name,
             type,
             desc,

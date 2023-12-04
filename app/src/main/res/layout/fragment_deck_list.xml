@@ -1,14 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.decks.DeckListFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/top_toolbar"
+            app:title="Decks"
+            android:minHeight="?attr/actionBarSize"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.appbar.AppBarLayout>
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <Button
+        style="@style/Widget.Material3.Button.ElevatedButton.Icon"
+        android:id="@+id/addDeck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Deck"
+        app:icon="@drawable/add"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/deck_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
-
-</FrameLayout>
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:paddingHorizontal="8dp"/>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

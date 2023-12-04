@@ -5,6 +5,7 @@ import com.example.proyectofinalapiyugioh.data.api.asEntityModel
 import com.example.proyectofinalapiyugioh.data.db.CardDBRepository
 import com.example.proyectofinalapiyugioh.data.db.asCard
 import com.example.proyectofinalapiyugioh.data.db.asCardD
+import com.example.proyectofinalapiyugioh.data.db.asDeck
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
@@ -26,6 +27,14 @@ class CardRepository @Inject constructor(
             return list
 
 
+        }
+
+    val deck: Flow<List<Deck>>
+        get() {
+            val list = dbRepository.allDeck.map {
+                it.asDeck()
+            }
+            return deck
         }
 
 
