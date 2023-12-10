@@ -9,9 +9,11 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.findNavController
 import com.example.proyectofinalapiyugioh.R
 import com.example.proyectofinalapiyugioh.databinding.FragmentCardListBinding
 import com.example.proyectofinalapiyugioh.databinding.FragmentDeckListBinding
+import com.example.proyectofinalapiyugioh.ui.cards.list.CardListFragmentDirections
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -38,6 +40,7 @@ class DeckListFragment : Fragment() {
 
         val adapter = DeckAdapter(requireContext())
         val rv = binding.deckList
+        rv.adapter = adapter
 
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED){
@@ -45,6 +48,14 @@ class DeckListFragment : Fragment() {
                     adapter.submitList(it.deck)
                 }
             }
+        }
+
+        binding.addDeck.setOnClickListener {
+
+            val action = DeckListFragmentDirections
+                .actionDeckListFragmentToAddDeckFragment()
+            view.findNavController().navigate(action)
+            
         }
     }
 }

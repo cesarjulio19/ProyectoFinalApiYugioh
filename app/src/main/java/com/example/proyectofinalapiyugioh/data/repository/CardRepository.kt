@@ -3,6 +3,7 @@ package com.example.proyectofinalapiyugioh.data.repository
 import com.example.proyectofinalapiyugioh.data.api.CardApiRepository
 import com.example.proyectofinalapiyugioh.data.api.asEntityModel
 import com.example.proyectofinalapiyugioh.data.db.CardDBRepository
+import com.example.proyectofinalapiyugioh.data.db.DeckEntity
 import com.example.proyectofinalapiyugioh.data.db.asCard
 import com.example.proyectofinalapiyugioh.data.db.asCardD
 import com.example.proyectofinalapiyugioh.data.db.asDeck
@@ -34,7 +35,7 @@ class CardRepository @Inject constructor(
             val list = dbRepository.allDeck.map {
                 it.asDeck()
             }
-            return deck
+            return list
         }
 
 
@@ -48,5 +49,9 @@ class CardRepository @Inject constructor(
     suspend fun refreshList() = withContext(Dispatchers.IO){
         val apiCard = apiRepository.getAll()
         dbRepository.insert(apiCard.asEntityModel())
+    }
+
+    suspend fun insertDeck(deck: DeckEntity) = withContext(Dispatchers.IO){
+        dbRepository.insertDeck(deck)
     }
 }

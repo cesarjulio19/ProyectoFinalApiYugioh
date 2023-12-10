@@ -28,8 +28,8 @@ data class CardEntity(
 
 @Entity(tableName = "deck")
 data class DeckEntity(
-    @PrimaryKey
-    val idDeck: Int,
+    @PrimaryKey(autoGenerate = true)
+    val idDeck: Int = 0,
     val nameDeck: String
 )
 

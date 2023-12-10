@@ -12,7 +12,7 @@ interface CardDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(listCardEntity: List<CardEntity>)
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertDeckList(listDeckEntity: List<DeckEntity>)
+    suspend fun insertDeck(deck: DeckEntity)
 
     @Query("SELECT * FROM card")
     fun getAll(): Flow<List<CardEntity>>

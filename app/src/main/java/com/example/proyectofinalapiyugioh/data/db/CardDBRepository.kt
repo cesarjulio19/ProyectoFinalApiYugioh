@@ -23,7 +23,7 @@ class CardDBRepository @Inject constructor(private val cardDao:CardDao) {
     }
 
     @WorkerThread
-    suspend fun insertDecks(listDeckEntity: List<DeckEntity>){
-        cardDao.insertDeckList(listDeckEntity)
+    suspend fun insertDeck(deck: DeckEntity){
+        cardDao.insertDeck(deck)
     }
 }
