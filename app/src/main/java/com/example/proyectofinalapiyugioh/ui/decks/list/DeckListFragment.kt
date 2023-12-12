@@ -38,7 +38,7 @@ class DeckListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val adapter = DeckAdapter(requireContext())
+        val adapter = DeckAdapter(::onShowCards)
         val rv = binding.deckList
         rv.adapter = adapter
 
@@ -57,5 +57,13 @@ class DeckListFragment : Fragment() {
             view.findNavController().navigate(action)
             
         }
+
+
+    }
+
+    private fun onShowCards(id: Int,view:View) {
+        val action = DeckListFragmentDirections
+            .actionDeckListFragmentToDeckCardsFragment(id)
+        view.findNavController().navigate(action)
     }
 }

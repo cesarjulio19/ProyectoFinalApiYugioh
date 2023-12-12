@@ -13,10 +13,33 @@
         <action
             android:id="@+id/action_deckListFragment_to_addDeckFragment"
             app:destination="@id/addDeckFragment" />
+        <action
+            android:id="@+id/action_deckListFragment_to_deckCardsFragment"
+            app:destination="@id/deckCardsFragment" />
     </fragment>
     <fragment
         android:id="@+id/addDeckFragment"
         android:name="com.example.proyectofinalapiyugioh.ui.decks.form.AddDeckFragment"
         android:label="AddDeckFragment" />
+    <fragment
+        android:id="@+id/deckCardsFragment"
+        android:name="com.example.proyectofinalapiyugioh.ui.decks.deckCardsList.DeckCardsFragment"
+        android:label="fragment_deck_cards"
+        tools:layout="@layout/fragment_deck_cards" >
+        <argument
+            android:name="id"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_deckCardsFragment_to_addDeckCardsFragment"
+            app:destination="@id/addDeckCardsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addDeckCardsFragment"
+        android:name="com.example.proyectofinalapiyugioh.ui.decks.form.AddDeckCardsFragment"
+        android:label="AddDeckCardsFragment" >
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </fragment>
 
 </navigation>

@@ -2,6 +2,7 @@ package com.example.proyectofinalapiyugioh.ui.decks.list
 
 import android.content.Context
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.proyectofinalapiyugioh.data.repository.Card
@@ -9,7 +10,7 @@ import com.example.proyectofinalapiyugioh.data.repository.Deck
 import com.example.proyectofinalapiyugioh.databinding.DeckItemBinding
 import com.example.proyectofinalapiyugioh.ui.cards.list.CardAdapter
 
-class DeckAdapter(private val context: Context)
+class DeckAdapter(private val onShowCards:(id:Int,v: View)->Unit)
     : RecyclerView.Adapter<DeckAdapter.DeckItemViewHolder>(){
 
     private var deckList: List<Deck> = emptyList()
@@ -19,6 +20,10 @@ class DeckAdapter(private val context: Context)
 
             fun bind(d: Deck){
                 binding.nameText.text = d.name
+
+                binding.deck.setOnClickListener {
+                    onShowCards(d.id, binding.root)
+                }
             }
 
     }
