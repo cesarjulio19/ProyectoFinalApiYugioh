@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="Card_bottom_nav">Cards</string>
+    <string name="Decks_bottom_nav">Decks</string>
+    <string name="app_name">Cards List</string>
+
+</resources>

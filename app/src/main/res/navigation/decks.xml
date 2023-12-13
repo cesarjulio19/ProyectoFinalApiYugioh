@@ -32,11 +32,25 @@
         <action
             android:id="@+id/action_deckCardsFragment_to_addDeckCardsFragment"
             app:destination="@id/addDeckCardsFragment" />
+        <argument
+            android:name="name"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_deckCardsFragment_to_cardDetailFragment2"
+            app:destination="@id/cardDetailFragment2" />
     </fragment>
     <fragment
         android:id="@+id/addDeckCardsFragment"
         android:name="com.example.proyectofinalapiyugioh.ui.decks.form.AddDeckCardsFragment"
         android:label="AddDeckCardsFragment" >
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/cardDetailFragment2"
+        android:name="com.example.proyectofinalapiyugioh.ui.cards.detail.CardDetailFragment"
+        android:label="CardDetailFragment" >
         <argument
             android:name="id"
             app:argType="integer" />

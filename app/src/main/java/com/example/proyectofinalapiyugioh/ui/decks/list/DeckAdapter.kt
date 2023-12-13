@@ -10,7 +10,7 @@ import com.example.proyectofinalapiyugioh.data.repository.Deck
 import com.example.proyectofinalapiyugioh.databinding.DeckItemBinding
 import com.example.proyectofinalapiyugioh.ui.cards.list.CardAdapter
 
-class DeckAdapter(private val onShowCards:(id:Int,v: View)->Unit)
+class DeckAdapter(private val onShowCards:(id:Int,name:String,v: View)->Unit)
     : RecyclerView.Adapter<DeckAdapter.DeckItemViewHolder>(){
 
     private var deckList: List<Deck> = emptyList()
@@ -22,7 +22,7 @@ class DeckAdapter(private val onShowCards:(id:Int,v: View)->Unit)
                 binding.nameText.text = d.name
 
                 binding.deck.setOnClickListener {
-                    onShowCards(d.id, binding.root)
+                    onShowCards(d.id,d.name, binding.root)
                 }
             }
 

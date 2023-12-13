@@ -3,6 +3,7 @@ package com.example.proyectofinalapiyugioh.data.repository
 import com.example.proyectofinalapiyugioh.data.api.CardApiRepository
 import com.example.proyectofinalapiyugioh.data.api.asEntityModel
 import com.example.proyectofinalapiyugioh.data.db.CardDBRepository
+import com.example.proyectofinalapiyugioh.data.db.DeckCardCrossRef
 import com.example.proyectofinalapiyugioh.data.db.DeckEntity
 import com.example.proyectofinalapiyugioh.data.db.asCard
 import com.example.proyectofinalapiyugioh.data.db.asCardD
@@ -39,12 +40,22 @@ class CardRepository @Inject constructor(
         }
 
 
+
      suspend fun cardDetail(id:Int) = withContext(Dispatchers.IO){
 
         dbRepository.getCardById(id).asCardD()
 
 
     }
+
+    suspend fun getIdCard(name:String) = withContext(Dispatchers.IO) {
+        dbRepository.getIdCard(name)
+    }
+
+    suspend fun getDecksWithCards(id:Int) = withContext(Dispatchers.IO) {
+        dbRepository.getDecksWithCards(id).cards.asCard()
+    }
+
 
     suspend fun refreshList() = withContext(Dispatchers.IO){
         val apiCard = apiRepository.getAll()
@@ -53,5 +64,9 @@ class CardRepository @Inject constructor(
 
     suspend fun insertDeck(deck: DeckEntity) = withContext(Dispatchers.IO){
         dbRepository.insertDeck(deck)
+    }
+
+    suspend fun insertDeckCards(deckCards: DeckCardCrossRef) = withContext(Dispatchers.IO){
+        dbRepository.insertDeckCards(deckCards)
     }
 }

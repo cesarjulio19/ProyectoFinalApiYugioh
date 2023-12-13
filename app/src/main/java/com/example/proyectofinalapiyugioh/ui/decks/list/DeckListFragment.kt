@@ -61,9 +61,9 @@ class DeckListFragment : Fragment() {
 
     }
 
-    private fun onShowCards(id: Int,view:View) {
+    private fun onShowCards(id: Int,name:String,view:View) {
         val action = DeckListFragmentDirections
-            .actionDeckListFragmentToDeckCardsFragment(id)
+            .actionDeckListFragmentToDeckCardsFragment(id,name)
         view.findNavController().navigate(action)
     }
 }

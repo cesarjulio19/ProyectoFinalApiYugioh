@@ -11,10 +11,19 @@ class CardDBRepository @Inject constructor(private val cardDao:CardDao) {
 
     val allCard: Flow<List<CardEntity>> = cardDao.getAll()
     val allDeck: Flow<List<DeckEntity>> = cardDao.getAllDeck()
-
     suspend fun getCardById(id:Int):CardEntity{
         val cardD = cardDao.getCard(id)
         return cardD
+    }
+
+    suspend fun getIdCard(name:String):Int{
+        val idCard = cardDao.getIdCard(name)
+        return idCard
+    }
+
+    suspend fun getDecksWithCards(id: Int): DeckWithCards{
+        val deckWithCards = cardDao.getDecksWithCards(id)
+        return deckWithCards
     }
 
     @WorkerThread
@@ -25,5 +34,10 @@ class CardDBRepository @Inject constructor(private val cardDao:CardDao) {
     @WorkerThread
     suspend fun insertDeck(deck: DeckEntity){
         cardDao.insertDeck(deck)
+    }
+
+    @WorkerThread
+    suspend fun insertDeckCards(deckCards: DeckCardCrossRef){
+        cardDao.insertDeckCards(deckCards)
     }
 }
