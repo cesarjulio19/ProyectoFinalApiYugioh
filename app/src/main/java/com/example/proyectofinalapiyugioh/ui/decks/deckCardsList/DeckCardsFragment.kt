@@ -1,5 +1,6 @@
 package com.example.proyectofinalapiyugioh.ui.decks.deckCardsList
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -63,6 +64,30 @@ class DeckCardsFragment : Fragment() {
 
         viewLifecycleOwner.lifecycleScope.launch{
             adapter.submitList(viewModel.getDeckCards(args.id))
+        }
+
+        binding.shareDeck.setOnClickListener {
+            viewLifecycleOwner.lifecycleScope.launch{
+                val deck = viewModel.getDeckCards(args.id)
+                var deckString = ""
+                deck.forEach(){
+                    deckString = deckString + it.name + ", "
+                }
+                val shareText = args.name + ": " + deckString
+
+                val intent = Intent().apply {
+                    action = Intent.ACTION_SEND
+                    putExtra(Intent.EXTRA_TEXT,shareText)
+                    type = "text/plain"
+                }
+                val shareIntent = Intent.createChooser(intent,null)
+                startActivity(shareIntent)
+
+            }
+
+
+
+
         }
     }
 

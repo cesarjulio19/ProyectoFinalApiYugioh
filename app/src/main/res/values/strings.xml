@@ -2,5 +2,15 @@
     <string name="app_name">Lista De Cartas</string>
     <string name="Card_bottom_nav">Cartas</string>
     <string name="Decks_bottom_nav">Barajas</string>
+    <string name="add_deck">Add Deck</string>
+    <string name="add">Add</string>
+    <string name="name_card">Name Card</string>
+    <string name="add_card">Add Card</string>
+    <string name="add_deck2">Add Deck</string>
+    <string name="add2">Add</string>
+    <string name="decks">Decks</string>
+    <string name="add_deck3">Add Deck</string>
+    <string name="deck_cards_title">Add Card To Deck</string>
+    <string name="share_deck">Share Deck</string>
 
 </resources>

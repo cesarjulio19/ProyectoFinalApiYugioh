@@ -2,6 +2,7 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginBottom="75dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBar"
@@ -9,7 +10,7 @@
         android:layout_height="wrap_content">
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/top_toolbar"
-            app:title="Decks"
+            app:title="@string/decks"
             android:minHeight="?attr/actionBarSize"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
@@ -20,7 +21,7 @@
         android:id="@+id/addDeck"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add Deck"
+        android:text="@string/add_deck2"
         app:icon="@drawable/add"
         app:layout_anchor="@+id/appBar"
         app:layout_anchorGravity="bottom|end"

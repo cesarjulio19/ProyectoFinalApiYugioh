@@ -3,5 +3,15 @@
 
     <string name="Card_bottom_nav">Cartas</string>
     <string name="Decks_bottom_nav">Barajas</string>
-    <string name="app_name">Lista De Cartas</string>
+    <string name="app_name">YuGiOhApi</string>
+    <string name="add_deck">Nombre De La Baraja</string>
+    <string name="add">Añadir</string>
+    <string name="name_card">Nombre De La Carta</string>
+    <string name="add_card">Añadir Carta</string>
+    <string name="add_deck2">Añadir Baraja</string>
+    <string name="add2">Añadir</string>
+    <string name="decks">Barajas</string>
+    <string name="add_deck3">Añadir Baraja</string>
+    <string name="deck_cards_title">Añadir Carta A La Baraja</string>
+    <string name="share_deck">Compartir</string>
 </resources>

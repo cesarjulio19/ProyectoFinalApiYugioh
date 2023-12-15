@@ -14,7 +14,7 @@
         app:layout_constraintStart_toStartOf="parent">
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/top_toolbar"
-            app:title="Add Deck"
+            app:title="@string/add_deck3"
             android:minHeight="?attr/actionBarSize"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
@@ -24,7 +24,7 @@
         android:id="@+id/title_label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Add Deck"
+        android:hint="@string/add_deck"
         app:layout_constraintTop_toBottomOf="@id/bar"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_margin="16dp">
@@ -39,7 +39,7 @@
         android:id="@+id/add_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add"
+        android:text="@string/add"
         app:layout_constraintTop_toBottomOf="@id/title_label"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="16dp"
