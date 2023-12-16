@@ -24,7 +24,7 @@
             app:icon="@drawable/add"
             app:layout_anchor="@+id/top_toolbar"
             app:layout_anchorGravity="end|end"
-
+            android:layout_marginStart="16dp"
             />
     </com.google.android.material.appbar.AppBarLayout>
 

@@ -6,12 +6,10 @@
     <string name="add">Add</string>
     <string name="name_card">Name Card</string>
     <string name="add_card">Add Card</string>
-    <string name="add_deck2">Add Deck</string>
-    <string name="add2">Add</string>
     <string name="decks">Decks</string>
-    <string name="add_deck3">Add Deck</string>
     <string name="deck_cards_title">Add Card To Deck</string>
     <string name="share_deck">Share Deck</string>
     <string name="elige_la_carta">Elige la carta</string>
+    <string name="deck_name">Deck name</string>
 
 </resources>
