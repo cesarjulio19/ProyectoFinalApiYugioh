@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -15,6 +17,7 @@ import com.example.proyectofinalapiyugioh.R
 import com.example.proyectofinalapiyugioh.data.db.DeckCardCrossRef
 import com.example.proyectofinalapiyugioh.databinding.FragmentAddDeckBinding
 import com.example.proyectofinalapiyugioh.databinding.FragmentAddDeckCardsBinding
+import com.google.android.material.textfield.MaterialAutoCompleteTextView
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -47,10 +50,22 @@ class AddDeckCardsFragment : Fragment() {
             findNavController().navigateUp()
         }
 
+        viewLifecycleOwner.lifecycleScope.launch {
+            val list = viewModel.getAllName()
+            val mutableList: MutableList<String> = mutableListOf()
+            list.forEach {
+                mutableList.add(it)
+            }
+
+            val autoCompleteTextView: AutoCompleteTextView = binding.autoComplete
+            val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, mutableList)
+            autoCompleteTextView.setAdapter(adapter)
+        }
+
         binding.addButton.setOnClickListener {
             viewLifecycleOwner.lifecycleScope.launch {
                 try {
-                    val nameCard = binding.titleInput.text.toString()
+                    val nameCard = binding.autoComplete.text.toString()
                     Log.d("NameCard", "$nameCard")
                     val idCard = viewModel.getIdCard(nameCard)
                     Log.d("IdCard", "$idCard")

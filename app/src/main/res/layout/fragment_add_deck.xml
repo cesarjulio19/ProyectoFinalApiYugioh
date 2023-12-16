@@ -14,7 +14,7 @@
         app:layout_constraintStart_toStartOf="parent">
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/top_toolbar"
-            app:title="@string/add_deck3"
+            app:title="@string/add_deck"
             android:minHeight="?attr/actionBarSize"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>

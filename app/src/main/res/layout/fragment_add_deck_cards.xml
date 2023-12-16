@@ -20,18 +20,26 @@
             android:layout_height="wrap_content"/>
     </com.google.android.material.appbar.AppBarLayout>
 
+
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/title_label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/name_card"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         app:layout_constraintTop_toBottomOf="@id/bar"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_margin="16dp">
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/title_input"
+
+        <AutoCompleteTextView
+            android:id="@+id/auto_complete"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:inputType="none"
+            android:text="@string/elige_la_carta"
+            />
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
@@ -39,7 +47,7 @@
         android:id="@+id/add_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/add2"
+        android:text="@string/add"
         app:layout_constraintTop_toBottomOf="@id/title_label"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="16dp"

@@ -56,6 +56,10 @@ class CardRepository @Inject constructor(
         dbRepository.getDecksWithCards(id).cards.asCard()
     }
 
+    suspend fun getAllName() =  withContext(Dispatchers.IO) {
+        dbRepository.getAllName()
+    }
+
 
     suspend fun refreshList() = withContext(Dispatchers.IO){
         val apiCard = apiRepository.getAll()

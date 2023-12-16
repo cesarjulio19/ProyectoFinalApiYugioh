@@ -71,7 +71,7 @@ class DeckCardsFragment : Fragment() {
                 val deck = viewModel.getDeckCards(args.id)
                 var deckString = ""
                 deck.forEach(){
-                    deckString = deckString + it.name + ", "
+                    deckString = deckString + "[ "+ it.name + " ] "
                 }
                 val shareText = args.name + ": " + deckString
 

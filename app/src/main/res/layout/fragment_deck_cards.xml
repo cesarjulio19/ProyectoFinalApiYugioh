@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<!--<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginBottom="75dp"
+    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_marginBottom="75dp"
+    >
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBar"
@@ -32,7 +33,7 @@
         android:layout_height="wrap_content"
         android:text="@string/add_card"
         app:layout_constraintTop_toBottomOf="@+id/appBar"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/shareDeck"
         app:icon="@drawable/add"
         android:layout_marginEnd="16dp"
         />
@@ -43,7 +44,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/share_deck"
-        app:layout_constraintTop_toBottomOf="@+id/addCard"
+        app:layout_constraintTop_toBottomOf="@+id/appBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:icon="@drawable/compartir"
         android:layout_marginEnd="16dp"
@@ -56,12 +57,78 @@
         app:layout_constraintTop_toBottomOf="@+id/shareDeck"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        android:paddingHorizontal="8dp"/>
+        android:paddingHorizontal="8dp"
+        />
 
 
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>-->
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="75dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="?attr/actionBarSize"
+            app:title="Card List" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_anchor="@+id/topAppBar"
+            app:layout_anchorGravity="start">
+
+            <Button
+                style="@style/Widget.Material3.Button.ElevatedButton.Icon"
+                android:id="@+id/addCard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/add_card"
+                app:icon="@drawable/add"
+                />
+
+            <Button
+                style="@style/Widget.Material3.Button.ElevatedButton.Icon"
+                android:id="@+id/shareDeck"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/share_deck"
+                app:icon="@drawable/compartir"
+                android:layout_marginStart="16dp"
+            />
+
+        </LinearLayout>
+
+
+
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/card_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:paddingHorizontal="8dp"
+        />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

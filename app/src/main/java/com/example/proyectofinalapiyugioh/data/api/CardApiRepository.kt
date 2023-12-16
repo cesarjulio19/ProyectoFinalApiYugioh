@@ -10,7 +10,7 @@ class CardApiRepository @Inject constructor(private val service:CardService){
     suspend fun getAll():List<CardApiModel>{
         val simpleList = service.api.fetchAllCard()
         val list: MutableList<CardApiModel> = mutableListOf()
-        simpleList.data.take(50).forEach() {
+        simpleList.data.take(500).forEach() {
 
             try {
 
@@ -26,7 +26,7 @@ class CardApiRepository @Inject constructor(private val service:CardService){
                     detailListResponse.data[0].type,
                     detailListResponse.data[0].desc,
                     detailListResponse.data[0].archetype?: "No Archetype",
-                    detailListResponse.data[0].card_images[0].image_url,
+                    detailListResponse.data[0].card_images[0].image_url_cropped,
                     detailListResponse.data[0].card_images[0].image_url_small,
                     detailListResponse.data[0].level?: 0,
                     detailListResponse.data[0].atk?: 0,

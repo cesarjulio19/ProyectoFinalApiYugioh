@@ -40,7 +40,7 @@ data class CardDetailResponse(val id: Int,
             type,
             desc,
             archetype,
-            card_images[0].image_url,
+            card_images[0].image_url_cropped,
             card_images[0].image_url_small,
             level,
             atk,
@@ -50,7 +50,7 @@ data class CardDetailResponse(val id: Int,
 }
 
 data class CardImage(
-    val image_url: String,
+    val image_url_cropped: String,
     val image_url_small: String,
 
     )

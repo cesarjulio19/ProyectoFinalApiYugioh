@@ -31,4 +31,7 @@ interface CardDao {
     @Transaction
     @Query("SELECT * FROM deck Where idDeck = :id")
     fun getDecksWithCards(id:Int): DeckWithCards
+
+    @Query("SELECT name FROM card")
+    fun getAllName(): List<String>
 }

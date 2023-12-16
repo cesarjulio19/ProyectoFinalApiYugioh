@@ -18,4 +18,9 @@ class AddDeckCardsViewModel @Inject constructor(private val repository: CardRepo
         repository.insertDeckCards(deckCards)
     }
 
+    suspend fun getAllName():List<String>{
+        val list = repository.getAllName()
+        return list
+    }
+
 }

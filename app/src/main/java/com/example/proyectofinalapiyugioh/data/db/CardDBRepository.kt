@@ -26,6 +26,11 @@ class CardDBRepository @Inject constructor(private val cardDao:CardDao) {
         return deckWithCards
     }
 
+    suspend fun getAllName(): List<String>{
+        val listName = cardDao.getAllName()
+        return listName
+    }
+
     @WorkerThread
     suspend fun insert(listCardEntity: List<CardEntity>) {
         cardDao.insert(listCardEntity)

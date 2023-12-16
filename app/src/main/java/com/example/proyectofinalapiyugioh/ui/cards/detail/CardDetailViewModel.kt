@@ -17,24 +17,6 @@ import javax.inject.Inject
 @HiltViewModel
 class CardDetailViewModel @Inject constructor(private val repository: CardRepository): ViewModel(){
 
-    private val _uiState = MutableStateFlow(CardDetailUiState(listOf()))
-
-    val uiState: StateFlow<CardDetailUiState>
-        get()=_uiState.asStateFlow()
-
-
-    init{
-
-        viewModelScope.launch {
-            try {
-                repository.refreshList()
-
-            }catch (e: IOException){
-                _uiState.value = _uiState.value.copy(errorMessage = e.message!!)
-            }
-        }
-
-    }
 
     suspend fun getCard(id:Int): Card {
 
